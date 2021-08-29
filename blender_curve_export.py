@@ -18,13 +18,13 @@ for ob in bpy.data.objects.values() :
           if len(spline.points) > 0 :
             for bezier_point in spline.points.values() : 
               co           = bezier_point.co @ ob.matrix_world
-              file.write("[%.3f, %.3f, %.3f],  " % (co.x, co.z, -co.y ))
+              file.write("[%.3f, %.3f, %.3f],  " % (co.x, co.y, co.z ))
 
       if curvetype == 'BEZIER':
           if len(spline.bezier_points) > 0 :
             for bezier_point in spline.bezier_points.values() : 
               co           = bezier_point.co @ ob.matrix_world
-              file.write("[%.3f, %.3f, %.3f],  " % (co.x, co.z, -co.y ))
+              file.write("[%.3f, %.3f, %.3f],  " % (co.x, co.y, co.z ))
             
     file.write("]\n")
     file.write("for (var i = 0; i < points.length; i++) {\n")
