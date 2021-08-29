@@ -17,13 +17,13 @@ for ob in bpy.data.objects.values() :
       if curvetype == 'NURBS' or 'POLY':
           if len(spline.points) > 0 :
             for bezier_point in spline.points.values() : 
-              co           = bezier_point.co @ ob.matrix_world
+              co           = ob.matrix_world @ bezier_point.co
               file.write("[%.3f, %.3f, %.3f],  " % (co.x, co.y, co.z ))
 
       if curvetype == 'BEZIER':
           if len(spline.bezier_points) > 0 :
             for bezier_point in spline.bezier_points.values() : 
-              co           = bezier_point.co @ ob.matrix_world
+              co           = ob.matrix_world @ bezier_point.co
               file.write("[%.3f, %.3f, %.3f],  " % (co.x, co.y, co.z ))
             
     file.write("]\n")
