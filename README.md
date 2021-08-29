@@ -1,6 +1,6 @@
-# blender_curve_export
+# Blender curve threejs export
 
-Will generate a es6 file with all the curves of your Blender scene, already formated for Threejs.
+Will generate an es6 file with all the curves of your Blender scene, already formated for Threejs.
 
 
 ## Usage:
