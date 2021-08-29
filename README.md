@@ -29,12 +29,12 @@ const format = () => {
 
 export const curveA = () => {
   const points = [...] // <-- exported from blender
-	return format(points);
+  return format(points);
 }
 
 export const curveB = () => {
   const points = [...] // <-- exported from blender
-	return format(points);
+  return format(points);
 }
 ```
 
