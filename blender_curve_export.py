@@ -6,6 +6,16 @@ currPath = os.path.splitext(bpy.data.filepath)[0]+ ".curves.js"
 file = open(currPath, "w") 
 file.write('import * as THREE from \'three\';\n')
 
+file.write("const format = (points) => {\n")
+file.write("for (var i = 0; i < points.length; i++) {\n")
+file.write("  var x = points[i][0];\n")
+file.write("  var y = points[i][1];\n")
+file.write("  var z = points[i][2];\n")
+file.write("  points[i] = new THREE.Vector3(x, z, -y);\n")
+file.write("}\n")
+file.write("return points;\n")
+file.write("}\n")
+
 for ob in bpy.data.objects.values() : 
   if ob.type == 'CURVE' :
     file.write('\n')
@@ -27,13 +37,7 @@ for ob in bpy.data.objects.values() :
               file.write("[%.3f, %.3f, %.3f],  " % (co.x, co.y, co.z ))
             
     file.write("]\n")
-    file.write("for (var i = 0; i < points.length; i++) {\n")
-    file.write("\tvar x = points[i][0];\n")
-    file.write("\tvar y = points[i][1];\n")
-    file.write("\tvar z = points[i][2];\n")
-    file.write("\tpoints[i] = new THREE.Vector3(x, z, -y);\n")
-    file.write("}\n")
-    file.write("return points;\n")
+    file.write("return format(points);\n")
 file.write("}\n")
 file.write("\n")
 file.close()
