@@ -38,6 +38,6 @@ for ob in bpy.data.objects.values() :
             
     file.write("]\n")
     file.write("return format(points);\n")
-file.write("}\n")
+    file.write("}\n")
 file.write("\n")
 file.close()
