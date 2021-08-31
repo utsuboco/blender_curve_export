@@ -19,7 +19,7 @@ file.write("}\n")
 for ob in bpy.data.objects.values() : 
   if ob.type == 'CURVE' :
     file.write('\n')
-    file.write("export const %s = () => {\n const points = [\n" % ob.name)
+    file.write("export const %s = () => {\n const points = [\n" % ob.name.replace('.', ''))
     for spline in ob.data.splines :
       curvetype = spline.type
       print('curve type:', curvetype)
