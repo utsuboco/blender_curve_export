@@ -1,5 +1,7 @@
 # Blender curve threejs export
 
+Used with an UI by [Blender_GLTF_Scripts](https://github.com/utsuboco/blender_gltf_scripts)
+
 Will generate an es6 file with all the curves of your Blender scene, already formated for Threejs.
 
 
